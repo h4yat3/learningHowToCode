@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border-radius: 0px 0px 0px 0px;
+            padding: 20px;
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+        
+    </style>
+</head>
+
+
+<body>
+    <br>
+    <div id="box"></div>
+    <br>
+    <p>superior esquerdo</p>
+    <input type="number" id="SE">
+    <p>superior direito</p>
+    <input type="number" id="SD">
+    <p>inferior direito</p>
+    <input type="number" id="ID">
+    <p>inferior esquerdo</p>
+    <input type="number" id="IE">
+    <p></p>
+    <input type="button" value="iniciar" onclick="iniciar()">
+    <input type="button" value="CSS Code" onclick="gerarCSS()">
+
+<script>
+    var SE = document.querySelector('input#SE') //set 'SE' value
+    var SD = document.querySelector('input#SD')
+    var ID = document.querySelector('input#ID')
+    var IE = document.querySelector('input#IE')
+    var box = document.querySelector('div#box')
+
+
+    function iniciar(){ //collect and changes the values of border radius
+        se = Number.parseInt(SE.value)
+        sd = Number.parseInt(SD.value)
+        id = Number.parseInt(ID.value)
+        ie = Number.parseInt(IE.value)
+
+
+        box.style.borderTopLeftRadius = `${se}px`
+        box.style.borderTopRightRadius = `${sd}px`
+        box.style.borderBottomRightRadius = `${id}px`
+        box.style.borderBottomLeftRadius = `${ie}px`
+    }
+
+    function gerarCSS() { //generates CSS code
+        var  se = String(SE.value)
+        var  sd = String(SD.value)
+        var  id = String(ID.value)
+        var  ie = String(IE.value)
+
+        if (Object.keys(se).length === 0){   //verify if input is empty, if it is turn 'se' value in to zero
+            se = 0}
+        if (Object.keys(sd).length === 0){
+            sd = 0}
+        if (Object.keys(id).length === 0){
+            id = 0}
+        if (Object.keys(ie).length === 0){
+            ie = 0}
+
+
+        document.write( //write CSS code
+           `border-radius: ${se}px ${sd}px ${id}px ${ie}px;
+            padding: 20px; 
+            width: 200px; 
+            height: 200px; 
+            background-color: green;`)
+    
+    }
+
+</script>
+</body>
+</html>
