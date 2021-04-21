@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bin2dec</title>
+</head>
+<body>
+    <h1>binary 2 decimal</h1>
+    <input type="number" name="bin" id="bin">
+    <input type="button" value="iniciar!" onclick="iniciar()">
+    <p id="res">resultado</p>
+    <p id="showresult"></p>
+    <script>
+         var n1 = window.document.querySelector('input#bin')
+         var showresult = window.document.querySelector('p#showresult')
+
+        function iniciar(){
+            var res = window.document.querySelector('p#res')
+            var tam = String(n1.value)
+            var tam2 = tam.length
+
+
+            if(tam2>8){
+                alert('mais que oito digitos')
+            }else{
+                binVeri()
+            }
+        }
+        function binVeri(){
+            var tam = String(n1.value)
+            var tam2 = tam.length
+            var c = 0
+            while (c<tam2){
+                if(tam[c]>1){
+                    alert('numero não binario')
+                 break
+                }
+                c++ 
+            }
+            convert()
+        }
+        function convert(){       //
+            var binario = String(n1.value)
+            var tam2 = Number.parseInt(binario.length)
+            var counter = tam2 - 1 //gambiarra para funcionar
+            var pot = 0
+            var resultado = 0
+            while (counter>=0){
+                var temp = Number.parseInt((String(n1.value))[counter])
+                resultado = resultado + (binario[counter]*(2**pot))
+                counter--
+                pot++    
+        }
+        showresult.innerHTML = resultado
+    }
+    </script>
+
+</body>
+</html>
